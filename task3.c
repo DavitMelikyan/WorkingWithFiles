@@ -1,13 +1,10 @@
 #include <stdio.h>
-
+#include <limits.h>
 int main() {
-	int arr[1000] = {};
-	int rd = 0;
-	int count = 0;
+	const int size = 1000;
+	int arr[size] = {};
 	FILE* fptr = fopen("file.txt", "r");
-	while ((rd = fread(arr, 1, 1, fptr)) == 1) {
-		 ++count;
-	}
+	int count = fread(arr, 1, INT_MAX, fptr);
 	--count;
 	fclose(fptr);
 	printf("File has %d numbers\n", count);

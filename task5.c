@@ -6,7 +6,7 @@ int main() {
 	FILE* fptr2 = fopen("b.txt", "r+");
 	char str[size];
 	for (int i = 1; i < size; ++i) {
-		fseek(fptr1, -i-1, SEEK_END);
+		fseek(fptr1, -i - 1, SEEK_END);
 		fread(str, 1, 1, fptr1);
 		fwrite(str, 1, 1, fptr2);
 	}
